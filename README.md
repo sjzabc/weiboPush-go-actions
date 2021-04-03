@@ -2,8 +2,39 @@
 微博热搜(热、爆，新)标签推送微信
 
 
+
+
+
+## 教程
+
+1. fork项目
+
+2. 创建应用，用来推送消息
+
+```html
+https://wxpusher.zjiecode.com/admin/main
+```
+得到APP_TOKEN,UID
+
+3. 修改定时器
+
+.github/workflows/push_bao.yml 修改corn表达式
+
+```yml
+  schedule:
+    # 每60分钟执行一次
+    - cron:  '*/60 * * * *'
+```
 cron表达测试 ：https://crontab.guru
 
+4. 配置APP_TOKEN,UID,TAG(填写 爆或者 热 或者 新)
 
+Settings--> secrets
+![image.png](https://i.loli.net/2021/04/03/TNM2a8OSGXp6Z1F.png)
 
-<img src="https://wxpusher.zjiecode.com/api/qrcode/D3IboEmZi3JsdD4K3oHukzEeM3hCcG50ODJAXO9BNdjVS6OnjrVXk5B0AUTOT1cL.jpg"/>
+![image.png](https://i.loli.net/2021/04/03/yEPU5kdWz8RMecY.png)
+
+5. 查看收到的消息
+
+![image.png](https://i.loli.net/2021/04/03/nMI4XVHjKOyq5d6.png)
+
