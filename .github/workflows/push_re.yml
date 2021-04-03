@@ -31,9 +31,10 @@ jobs:
       - name: Check out source code
         uses: actions/checkout@v1
 
-
-      - name: LS
-        run: go version
+      - name: env
+        run: go env -w GO111MODULE=auto
+      - name: ls
+        run: ls
 
       - name: Build
         run: go build .
