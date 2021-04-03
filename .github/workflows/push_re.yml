@@ -42,12 +42,10 @@ jobs:
 
 
       - name: Build
-        run: go build .
+        run: go build ./weibo.go
 
       - name: ls
         run: |
-          ls
-          cd weiboPush-go-actions
           ls
 
       - name: Run
