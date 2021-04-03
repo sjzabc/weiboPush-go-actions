@@ -31,8 +31,12 @@ jobs:
       - name: Check out source code
         uses: actions/checkout@v1
 
+
+      - name: LS
+        run: go version
+
       - name: Build
-        run: go build .  
+        run: go build .
 
       - name: Run
         run: ./weibo -token ${{secrets.APP_TOKEN}} -uid ${{secrets.UID}} -tag ${{secrets.TAG}}
