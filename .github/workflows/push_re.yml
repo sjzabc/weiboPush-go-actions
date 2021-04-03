@@ -43,9 +43,12 @@ jobs:
 
       - name: Build
         run: go build .
-        
+
       - name: ls
-        run: ls
+        run: |
+          ls
+          cd weiboPush-go-actions
+          ls
 
       - name: Run
         run: ./weibo -token ${{secrets.APP_TOKEN}} -uid ${{secrets.UID}} -tag ${{secrets.TAG}}
