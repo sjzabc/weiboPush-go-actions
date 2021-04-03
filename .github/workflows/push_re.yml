@@ -33,8 +33,13 @@ jobs:
 
       - name: env
         run: go env -w GO111MODULE=auto
-      - name: ls
-        run: ls
+
+      - name: get
+        run: |
+          go get github.com/PuerkitoBio/goquery
+          go get github.com/wxpusher/wxpusher-sdk-go
+          go get github.com/wxpusher/wxpusher-sdk-go/model
+
 
       - name: Build
         run: go build .
