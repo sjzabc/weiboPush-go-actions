@@ -9,15 +9,25 @@ import (
 	"net/http"
 	"strings"
 )
+
 var token = flag.String("token", "", "APP_TOKEN AT_....")
 var uid = flag.String("uid", "", "UID UID_...,UID_...")
 var tag = flag.String("tag", "", "tag 如：热 爆 新 ")
+
 const HOSTNAME = "https://s.weibo.com"
+
 var APP_TOKEN = *token
 var UID = *uid
 var TAG = *tag
-func main() {
 
+func init() {
+	flag.Parse()
+	APP_TOKEN = *token
+	UID = *uid
+	TAG = *tag
+}
+
+func main() {
 	SendMyMessage(TAG)
 	//c := cron.New()
 	////每天上午11点  推送 热 标签热搜
@@ -37,7 +47,7 @@ func main() {
 	//select {}
 }
 
-func  SendMyMessage(typeer string)  {
+func SendMyMessage(typeer string) {
 	res, err := http.Get("https://s.weibo.com/top/summary?cate=realtimehot")
 	checkErr(err)
 	defer func() { _ = res.Body.Close() }()
@@ -60,10 +70,10 @@ func  SendMyMessage(typeer string)  {
                 </div>
                 <div class="weui-cell__ft">%s
                 </div>
-            </a>`, HOSTNAME, href, herfText,redu)
+            </a>`, HOSTNAME, href, herfText, redu)
 		}
 	})
-	if  len(str)>0{
+	if len(str) > 0 {
 		fmt.Println("发送消息！")
 		senMessage(fmt.Sprintf(`<head><link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.3.0/weui.min.css"/></head>
 			 <div class="page"><div class="weui-cells">%s</div></div>
@@ -72,8 +82,8 @@ func  SendMyMessage(typeer string)  {
 
 }
 
-func senMessage(str string)  {
-	arr:= strings.Split(UID,",")
+func senMessage(str string) {
+	arr := strings.Split(UID, ",")
 	for _, val := range arr {
 		msg := model.NewMessage(APP_TOKEN).
 			SetContent(str).
