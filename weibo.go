@@ -64,7 +64,7 @@ func  SendMyMessage(typeer string)  {
 		}
 	})
 	if  len(str)>0{
-		fmt.Println("发送消息")
+		fmt.Println("发送消息！")
 		senMessage(fmt.Sprintf(`<head><link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.3.0/weui.min.css"/></head>
 			 <div class="page"><div class="weui-cells">%s</div></div>
 			`, str))
