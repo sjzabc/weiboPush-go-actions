@@ -1,0 +1,52 @@
+name: push re2 to weixin
+on:
+  workflow_dispatch:
+          inputs:
+              name:
+                  description: 'Person to greet'
+                  required: true
+                  default: 'Mona the Octocat'
+              home:
+                  description: 'location'
+                  required: false
+                  default: 'The Octoverse' 
+  push:
+    branches:    
+      - master
+  schedule:
+    # 9-22点每60分钟执行一次
+    - cron:  '*/60 9-22 * * *'
+      
+jobs:
+  build: 
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Go 1.12
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.16.2
+        id: go
+
+      - name: Check out source code
+        uses: actions/checkout@v1
+
+      - name: env
+        run: go env -w GO111MODULE=auto
+
+      - name: get
+        run: |
+          go get github.com/PuerkitoBio/goquery
+          go get github.com/wxpusher/wxpusher-sdk-go
+          go get github.com/wxpusher/wxpusher-sdk-go/model
+
+
+      - name: Build
+        run: go build ./weibo.go
+
+      - name: ls
+        run: |
+          ls
+
+      - name: Run
+        run: ./weibo -token ${{ secrets.APP_TOKEN }} -uid ${{ secrets.UID }} -tag 热
