@@ -29,7 +29,7 @@ https://wxpusher.zjiecode.com/admin/main
 ```
 cron表达测试 ：https://crontab.guru
 
-4. 配置APP_TOKEN,UID,TAG(填写 爆或者 热 或者 新)
+4. 配置APP_TOKEN,UID(多个uid请用,拼接),TAG(填写 爆或者 热 或者 新)
 
 Settings--> secrets
 ![image.png](https://i.loli.net/2021/04/03/TNM2a8OSGXp6Z1F.png)
