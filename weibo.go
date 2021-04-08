@@ -61,9 +61,6 @@ func SendMyMessage(typeer string) {
 		redu := s.Find(".td-03 i").Text()
 
 		if redu == typeer {
-				if i == 1{
-			continue	
-		}	
 			href, _ := s.Find(".td-02 a").Attr("href")
 			herfText := s.Find(".td-02 a").Text()
 			redu := s.Find(".td-03 i").Text()
