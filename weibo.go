@@ -59,11 +59,11 @@ func SendMyMessage(typeer string) {
 		//herfText := s.Find(".td-02 a").Text()
 		//href,_ := s.Find(".td-02 a").Attr("href")
 		redu := s.Find(".td-03 i").Text()
-		if i == 1{
+
+		if redu == typeer {
+				if i == 1{
 			continue	
 		}	
-		if redu == typeer {
-		
 			href, _ := s.Find(".td-02 a").Attr("href")
 			herfText := s.Find(".td-02 a").Text()
 			redu := s.Find(".td-03 i").Text()
