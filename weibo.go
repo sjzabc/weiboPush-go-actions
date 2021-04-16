@@ -91,7 +91,7 @@ func senMessage(str string) {
 	for _, val := range arr {
 		msg := model.NewMessage(APP_TOKEN).
 			SetContent(str).
-			AddUId(val)
+			AddUId(val).AddTopicId(1871).SetSummary("微博热搜 「"+TAG+"」 推送")
 		msgArr, err := wxpusher.SendMessage(msg)
 		fmt.Println(msgArr, err)
 	}
