@@ -40,5 +40,5 @@ Settings--> secrets
 
 5. 查看收到的消息
 
-![image.png](https://i.loli.net/2021/04/03/nMI4XVHjKOyq5d6.png)
+![image.png](https://i.loli.net/2021/04/16/jYKTorZRBfmkghD.png)
 
