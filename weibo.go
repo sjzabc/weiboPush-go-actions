@@ -91,7 +91,9 @@ func senMessage(str string) {
 	for _, val := range arr {
 		msg := model.NewMessage(APP_TOKEN).
 			SetContent(str).
-			AddUId(val).AddTopicId(1871).SetSummary("微博热搜 「"+TAG+"」 推送")
+			AddUId(val).AddTopicId(1871).SetSummary("微博热搜 「"+TAG+"」 推送").
+			SetUrl("https://s.weibo.com/top/summary?cate=realtimehot").
+		        SetContentType(2)
 		msgArr, err := wxpusher.SendMessage(msg)
 		fmt.Println(msgArr, err)
 	}
