@@ -34,7 +34,7 @@ func main() {
 	//c.AddFunc("0 0 11 * * ?", func() {
 	//	fmt.Println("执行定时任务")
 	//	SendMyMessage("热")
-	//	fmt.Println("定时任务执行结束")
+	//	fmt.Println("定时任务执行结束") 
 	//})
 	////每1小时  推送 爆 标签热搜
 	//c.AddFunc("@every 1h", func() {
@@ -61,6 +61,7 @@ func SendMyMessage(typeer string) {
 		redu := s.Find(".td-03 i").Text()
 
 		if redu == typeer {
+			//跳过置顶推荐
 			if i==0 && typeer =="热"{
 				return
 			}			
@@ -78,6 +79,7 @@ func SendMyMessage(typeer string) {
 		}
 	})
 	if len(str) > 0 {
+		//存在即发送
 		fmt.Println("发送消息！")
 		senMessage(fmt.Sprintf(`<head><link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.3.0/weui.min.css"/></head>
 			 <div class="page"><div class="weui-cells">%s</div></div>
@@ -89,6 +91,7 @@ func SendMyMessage(typeer string) {
 func senMessage(str string) {
 	arr := strings.Split(UID, ",")
 	for _, val := range arr {
+		//TopicId 主题id   ContentType 2 html形式    1 普通文本
 		msg := model.NewMessage(APP_TOKEN).
 			SetContent(str).
 			AddUId(val).AddTopicId(1871).SetSummary("微博热搜 「"+TAG+"」 推送").
