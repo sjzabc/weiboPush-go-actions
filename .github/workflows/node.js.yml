@@ -15,8 +15,6 @@ on:
                   required: false
                   default: 'The Octoverse' 
 
-env:
-  JD_COOKIE: 3333333333333333333333
 
 jobs:
   build:
@@ -36,4 +34,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install puppeteer
     - run: npm install lowdb    
-    - run: node ./ms.js    
+    - run: node ./ms.js  -n 22222222222
