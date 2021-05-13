@@ -12,11 +12,11 @@ let adapter = new FileSync('db.json',{
 });
 let db = low(adapter);
 db.defaults({orderRecord: '', count: 30 }).write();
-const argv    = yargs.alias('n', 'name').argv
-
+const argv = yargs.argv;
+console.log(argv)
 
 (async () => {
-        console.log("cookie:"+argv.name)
+        console.log("cookie:"+argv.n)
         const browser = await puppeteer.launch({headless: true});
         //linux设置
         // const browser = await puppeteer.launch({ executablePath: '/usr/bin/chromium', args:["--no-sandbox"] });
