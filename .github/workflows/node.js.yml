@@ -15,6 +15,9 @@ on:
                   required: false
                   default: 'The Octoverse' 
 
+env:
+  JD_COOKIE: 3333333333333333333333
+
 jobs:
   build:
 
