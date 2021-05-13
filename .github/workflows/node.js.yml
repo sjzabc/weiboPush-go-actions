@@ -33,3 +33,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install puppeteer
     - run: npm install lowdb    
+    - run: node ./ms.js    
