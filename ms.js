@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const yargs = require('yargs').argv;
+const yargs = require('yargs');
 //linux设置
 // const puppeteer = require('puppeteer-core');
 const low = require('lowdb');
