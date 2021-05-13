@@ -17,6 +17,7 @@ var redis_config = {
 
 (async () => {
         var redisClient = redis.createClient(redis_config);
+    console.log("pass:"+argv.password)
 redisClient.auth(argv.password)
 redisClient.select("3", function (err) {
     if (err) {
