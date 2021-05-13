@@ -33,5 +33,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install puppeteer
-    - run: npm install lowdb    
+    - run: npm install lowdb   
+    - run: npm install yargs --save-dev        
+   
     - run: node ./ms.js  -n 22222222222
