@@ -11,7 +11,7 @@ let adapter = new FileSync('db.json',{
 });
 let db = low(adapter);
 db.defaults({orderRecord: '', count: 30 }).write();
-const argv = const argv    = yargs.alias('n', 'name').argv
+const argv    = yargs.alias('n', 'name').argv
 
 
 (async () => {
