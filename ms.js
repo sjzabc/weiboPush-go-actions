@@ -10,7 +10,13 @@ var redis_config = {
     "host": argv.ip,
     "port": 6379,
 };
-var redisClient = redis.createClient(redis_config);
+
+
+
+
+
+(async () => {
+        var redisClient = redis.createClient(redis_config);
 redisClient.auth(argv.password)
 redisClient.select("3", function (err) {
     if (err) {
@@ -19,12 +25,7 @@ redisClient.select("3", function (err) {
         console.log('connect success');
     }
 })
-var redisCo = wrapper(redisClient);
-
-
-
-
-(async () => {
+var redisCo = wrapper(redisClient);    
         const browser = await puppeteer.launch({headless: true});
         //linux设置
         // const browser = await puppeteer.launch({ executablePath: '/usr/bin/chromium', args:["--no-sandbox"] });
