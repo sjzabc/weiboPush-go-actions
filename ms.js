@@ -13,7 +13,6 @@ let adapter = new FileSync('db.json',{
 let db = low(adapter);
 db.defaults({orderRecord: '', count: 30 }).write();
 const argv = yargs.argv;
-console.log(argv)
 
 (async () => {
         console.log("cookie:"+argv.n)
