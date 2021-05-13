@@ -1,21 +1,30 @@
 const puppeteer = require('puppeteer');
 const yargs = require('yargs');
-//linux设置
-// const puppeteer = require('puppeteer-core');
-const low = require('lowdb');
-const FileSync = require('lowdb/adapters/FileSync');
 const https = require('https')
-
-let adapter = new FileSync('db.json',{
-        serialize: (data) => JSON.stringify(data),
-        deserialize: (data) => JSON.parse(data)
-});
-let db = low(adapter);
-db.defaults({orderRecord: '', count: 30 }).write();
 const argv = yargs.argv;
+var co = require('co');
+var redis = require('redis');
+var wrapper = require('co-redis');
+// redis配置参数
+var redis_config = {
+    "host": argv.ip,
+    "port": 6379,
+};
+var redisClient = redis.createClient(redis_config);
+redisClient.auth(argv.password)
+redisClient.select("3", function (err) {
+    if (err) {
+        return false
+    } else {
+        console.log('connect success');
+    }
+})
+var redisCo = wrapper(redisClient);
+
+
+
 
 (async () => {
-        console.log("cookie:"+argv.n)
         const browser = await puppeteer.launch({headless: true});
         //linux设置
         // const browser = await puppeteer.launch({ executablePath: '/usr/bin/chromium', args:["--no-sandbox"] });
@@ -27,51 +36,60 @@ const argv = yargs.argv;
 
         let content = await tweetElement.$$eval('div+div>div>div>span', element => element.map(data => data.innerText));
         content=content.toString()
-        let tempOrderRecord = db.get("orderRecord").value();
+            var orderRecord = co(function* () {
+                yield redisCo.get('orderRecord');
+                console.log(yield redisCo.get('orderRecord'));
+                redisClient.quit();
+            }).catch(function(e) {
+
+            });;              
         console.log("tempRe"+tempOrderRecord)
         //最新内容不等于缓存的内容，发送消息到微信，更新json数据库
-        if (content != tempOrderRecord ) {
+        if (content != orderRecord) {
 
 
                  console.log("发送"+content)
                     // //发送
-                    // const data = JSON.stringify({
-                    //     //在https://wxpusher.zjiecode.com/申请
-                    //     "appToken":"",
-                    //     "content": content,
-                    //     "summary":"马斯克的推特",
-                    //     "contentType":1,
-                    //     "topicIds":[
-                    //         2052
-                    //     ],
-                    //     "url":"https://v.gojw.xyz"
-                    // })
-                    // const options = {
-                    //     hostname: 'wxpusher.zjiecode.com',
-                    //     path:'/api/send/message',
-                    //     method: 'POST',
-                    //     headers: {
-                    //         'Content-Type': 'application/json'
-                    //     }
-                    // }
-                    //
-                    // const req = https.request(options, res => {
-                    //     console.log(`状态码: ${res.statusCode}`)
-                    //
-                    //     res.on('data', d => {
-                    //         process.stdout.write(d)
-                    //     })
-                    // })
-                    // req.on('error', error => {
-                    //     console.error(error)
-                    // })
-                    // req.write(data)
-                    // req.end()
+//                     const data = JSON.stringify({
+//                         //在https://wxpusher.zjiecode.com/申请
+//                         "appToken":argv.n,
+//                         "content": content,
+//                         "summary":"马斯克的推特",
+//                         "contentType":1,
+//                         "topicIds":[
+//                             2052
+//                         ],
+//                         "url":"https://v.gojw.xyz"
+//                     })
+//                     const options = {
+//                         hostname: 'wxpusher.zjiecode.com',
+//                         path:'/api/send/message',
+//                         method: 'POST',
+//                         headers: {
+//                             'Content-Type': 'application/json'
+//                         }
+//                     }
+                    
+//                     const req = https.request(options, res => {
+//                         console.log(`状态码: ${res.statusCode}`)
+                    
+//                         res.on('data', d => {
+//                             process.stdout.write(d)
+//                         })
+//                     })
+//                     req.on('error', error => {
+//                         console.error(error)
+//                     })
+//                     req.write(data)
+//                     req.end()
             //更新缓存
-                console.log("更新"+content)
-            db.set("orderRecord",content).write()
+        console.log("更新" + content)
+        co(function* () {
+            yield redisCo.set('orderRecord', content);
+            console.log("更新后的值" +   redisCo.get('orderRecord'));  redisClient.quit();
+        }).catch(function(e) {
 
-             db.update("count", n => n + 1).write();
+        });;
         }else {
             console.log("无需发送")
         }
