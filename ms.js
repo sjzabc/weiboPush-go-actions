@@ -4,7 +4,6 @@ const puppeteer = require('puppeteer');
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const https = require('https')
-const schedule = require('node-schedule');
 
 let adapter = new FileSync('db.json',{
         serialize: (data) => JSON.stringify(data),
