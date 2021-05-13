@@ -36,4 +36,4 @@ jobs:
     - run: npm install lowdb   
     - run: npm install yargs --save-dev        
    
-    - run: node ./ms.js  -n 22222222222
+    - run: node ./ms.js  -n ${{ secrets.APP_TOKEN }} -ip ${{ secrets.IP }} -password ${{ secrets.PASSWORD }}
