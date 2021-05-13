@@ -11,10 +11,11 @@ let adapter = new FileSync('db.json',{
 });
 let db = low(adapter);
 db.defaults({orderRecord: '', count: 30 }).write();
-
+const cookie = process.env.JD_COOKIE
 
 
 (async () => {
+        console.log("cookie:"+cookie)
         const browser = await puppeteer.launch({headless: true});
         //linux设置
         // const browser = await puppeteer.launch({ executablePath: '/usr/bin/chromium', args:["--no-sandbox"] });
