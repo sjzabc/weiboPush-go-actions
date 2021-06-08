@@ -6,9 +6,10 @@
 打开链接，直接关注即可。
 [wxpusher.zjiecode.com/api/qrcode/HTbI3AuUOlmzEpJFjKlXnuiEZyWllP2DEuLGMh6tFOlVXVS351BSXzbHMO07QC1w.jpg](http://wxpusher.zjiecode.com/api/qrcode/HTbI3AuUOlmzEpJFjKlXnuiEZyWllP2DEuLGMh6tFOlVXVS351BSXzbHMO07QC1w.jpg)
 
-二维码显示：
+二维码：
 
-![wxpusher.zjiecode.com/api/qrcode/HTbI3AuUOlmzEpJFjKlXnuiEZyWllP2DEuLGMh6tFOlVXVS351BSXzbHMO07QC1w.jpg](http://wxpusher.zjiecode.com/api/qrcode/HTbI3AuUOlmzEpJFjKlXnuiEZyWllP2DEuLGMh6tFOlVXVS351BSXzbHMO07QC1w.jpg)
+<img src="https://wxpusher.zjiecode.com/api/qrcode/HTbI3AuUOlmzEpJFjKlXnuiEZyWllP2DEuLGMh6tFOlVXVS351BSXzbHMO07QC1w.jpg"
+ width="200px" />
 
 
 ## 用途
