@@ -8,7 +8,7 @@
 
 二维码显示：
 
-![wxpusher.zjiecode.com/api/qrcode/HTbI3AuUOlmzEpJFjKlXnuiEZyWllP2DEuLGMh6tFOlVXVS351BSXzbHMO07QC1w.jpg](wxpusher.zjiecode.com/api/qrcode/HTbI3AuUOlmzEpJFjKlXnuiEZyWllP2DEuLGMh6tFOlVXVS351BSXzbHMO07QC1w.jpg)
+![wxpusher.zjiecode.com/api/qrcode/HTbI3AuUOlmzEpJFjKlXnuiEZyWllP2DEuLGMh6tFOlVXVS351BSXzbHMO07QC1w.jpg](https://wxpusher.zjiecode.com/api/qrcode/HTbI3AuUOlmzEpJFjKlXnuiEZyWllP2DEuLGMh6tFOlVXVS351BSXzbHMO07QC1w.jpg)
 
 
 ## 用途
