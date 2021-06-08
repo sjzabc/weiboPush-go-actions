@@ -1,6 +1,15 @@
 # weiboPush-go-actions
 微博热搜(热、爆，新)标签推送微信
 
+##  现在我的action只开启 类型为 爆 的热搜
+
+打开链接，直接关注即可。
+[wxpusher.zjiecode.com/api/qrcode/HTbI3AuUOlmzEpJFjKlXnuiEZyWllP2DEuLGMh6tFOlVXVS351BSXzbHMO07QC1w.jpg](wxpusher.zjiecode.com/api/qrcode/HTbI3AuUOlmzEpJFjKlXnuiEZyWllP2DEuLGMh6tFOlVXVS351BSXzbHMO07QC1w.jpg)
+
+二维码显示：
+
+![wxpusher.zjiecode.com/api/qrcode/HTbI3AuUOlmzEpJFjKlXnuiEZyWllP2DEuLGMh6tFOlVXVS351BSXzbHMO07QC1w.jpg](wxpusher.zjiecode.com/api/qrcode/HTbI3AuUOlmzEpJFjKlXnuiEZyWllP2DEuLGMh6tFOlVXVS351BSXzbHMO07QC1w.jpg)
+
 
 ## 用途
 
