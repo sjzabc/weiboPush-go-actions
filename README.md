@@ -1,7 +1,7 @@
 # weiboPush-go-actions
 微博热搜(热、爆，新)标签推送微信
 
-##  现在我的action只开启 类型为 爆 的热搜, 类型为 `热`的太多了，推送频繁
+##  现在我的action只开启 类型为 `爆` 的热搜, 类型为 `热`的太多了，推送频繁
 
 打开链接，直接关注即可。
 [wxpusher.zjiecode.com/api/qrcode/HTbI3AuUOlmzEpJFjKlXnuiEZyWllP2DEuLGMh6tFOlVXVS351BSXzbHMO07QC1w.jpg](http://wxpusher.zjiecode.com/api/qrcode/HTbI3AuUOlmzEpJFjKlXnuiEZyWllP2DEuLGMh6tFOlVXVS351BSXzbHMO07QC1w.jpg)
