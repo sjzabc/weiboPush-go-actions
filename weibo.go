@@ -8,6 +8,7 @@ import (
 	"github.com/wxpusher/wxpusher-sdk-go/model"
 	"net/http"
 	"strings"
+	"time"
 )
 
 var token = flag.String("token", "", "APP_TOKEN AT_....")
