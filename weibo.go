@@ -48,7 +48,11 @@ func main() {
 }
 
 func SendMyMessage(typeer string) {
-	res, err := http.Get("https://s.weibo.com/top/summary?cate=realtimehot")
+	client := http.Client{
+    		Timeout: 10 * time.Second,
+	}
+
+	res, err := client.Get("https://s.weibo.com/top/summary?cate=realtimehot")
 	checkErr(err)
 	defer func() { _ = res.Body.Close() }()
 	//body, _ := ioutil.ReadAll(res.Body)
