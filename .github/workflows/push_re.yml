@@ -49,4 +49,4 @@ jobs:
           ls
 
       - name: Run
-        run: ./weibo -token ${{ secrets.APP_TOKEN }} -uid ${{ secrets.UID }} -tag 沸
+        run: ./weibo -token ${{ secrets.APP_TOKEN }} -uid ${{ secrets.UID }} -tag 热
